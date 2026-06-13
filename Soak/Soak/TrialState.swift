@@ -28,6 +28,10 @@ final class TrialState: ObservableObject {
         self.firstLaunchAt = Self.loadFirstLaunch(userDefaults: userDefaults, key: firstLaunchKey)
         applyOverrides()
         scheduleTick()
+        // Self-start the trial clock at launch. Idempotent + a no-op under UITest
+        // overrides (applyOverrides ran first). Lives in init() so the trial can
+        // never silently fail to start — the dead-trial bug class.
+        startIfNeeded()
     }
 
     deinit { tickTimer?.invalidate() }
