@@ -6,7 +6,7 @@ This HANDOFF was added retroactively 2026-06-08 — Soak (originally `hottub`, r
 
 **Marketing name:** `Soak: Hot Tub Assistant`
 **Bundle ID:** `com.kopaliani.HotTubHelper` (legacy name from the pre-rename era)
-**Pricing:** $3.99 paid up-front (no subscription, no ads, fully offline)
+**Pricing:** FREE + 48h full-feature trial → $3.99 one-time IAP (`com.kopaliani.HotTubHelper.pro`); no subscription, no ads, fully offline. (Pivoted from $3.99 paid up-front; app-level ASC price is now FREE, IAP WAITING_FOR_REVIEW. Canonical: `/moondog/PORTFOLIO.md`.)
 **Shape:** brand-aware dose math + after-use + shock + onboarding (iPhone, iOS 17 floor)
 **Audience:** backyard hot-tub / spa owners
 
