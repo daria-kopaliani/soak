@@ -164,3 +164,4 @@ Final reminder: stop after each of the four steps and let Daria direct. Do not r
 ## Considered, deferred
 
 (Empty — no features explicitly rejected yet. Items land here with a "why not" when decisions get made.)
+- [next version] "Rate Soak" App Store review link added to Settings/About (2026-06-17) — ships with next submission.

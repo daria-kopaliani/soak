@@ -70,6 +70,9 @@ struct SettingsView: View {
                         url: URL(string: "https://daria-kopaliani.github.io/moondog/hottub/privacy.html")!)
                 LinkRow(title: String(localized: "Support"),
                         url: URL(string: "https://daria-kopaliani.github.io/moondog/hottub/support.html")!)
+                Link(destination: URL(string: "https://apps.apple.com/app/id6775030424?action=write-review")!) {
+                    Label(String(localized: "Rate Soak"), systemImage: "star")
+                }
             } footer: {
                 Text("v\(appVersion)")
                     .frame(maxWidth: .infinity, alignment: .center)
