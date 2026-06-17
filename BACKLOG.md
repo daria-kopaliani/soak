@@ -143,6 +143,19 @@ Final reminder: stop after each of the four steps and let Daria direct. Do not r
 
 ---
 
+## ⚠️ Staged, not yet shipped — ASO metadata rewrite (2026-06-17)
+
+Part of the 2026-06-17 distribution pivot (freeze new builds, fix demand; see
+`/moondog/memory` distribution-pivot note + the portfolio analysis). `listings/`
+already edited but **NOT yet submitted to ASC** — these ride the next version submit:
+- **Name:** `Soak: Hot Tub Assistant` → `Soak: Hot Tub & Spa Calc` (adds "spa" + "calc")
+- **Subtitle:** `Chlorine & Bromine Dose Calc` → `Balance Chlorine, Bromine & pH`
+- **Keywords:** dropped name/subtitle dupes; added hardness, cya, saltwater
+Rationale: 0 App Store search impressions baseline; pack high-value category terms into
+the top-weight name/subtitle fields for long-tail coverage. **Note:** App Store **Name**
+changes can trigger heavier metadata review — supersedes the old "name is locked" line in
+this backlog's v1.1 Scope-out (line ~32); the name lock is intentionally being revisited.
+
 ## Queued (prioritized)
 
 | Feature | Why | Effort | Priority |

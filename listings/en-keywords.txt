@@ -1,1 +1,1 @@
-spa,jacuzzi,whirlpool,chemistry,calculator,ph,alkalinity,calcium,sanitizer,shock,test,balance,water
+jacuzzi,whirlpool,chemistry,alkalinity,calcium,sanitizer,shock,test,water,hardness,cya,saltwater
