@@ -2,8 +2,11 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var config: HotTubConfig
+    @EnvironmentObject private var purchases: PurchaseStore
+    @EnvironmentObject private var entitlement: Entitlement
     @State private var volumeText: String = ""
     @State private var suppressNextSave: Bool = false
+    @State private var showPaywall: Bool = false
     @FocusState private var volumeFocused: Bool
 
     private var appVersion: String {
@@ -12,6 +15,39 @@ struct SettingsView: View {
 
     var body: some View {
         Form {
+            Section {
+                if purchases.isPro {
+                    HStack {
+                        Label(String(localized: "Soak Pro"), systemImage: "checkmark.seal.fill")
+                            .foregroundStyle(.green)
+                        Spacer()
+                        Text(String(localized: "Unlocked")).foregroundStyle(.secondary)
+                    }
+                } else {
+                    Button {
+                        showPaywall = true
+                    } label: {
+                        HStack {
+                            Label(String(localized: "Unlock Soak Pro"), systemImage: "lock.open")
+                            Spacer()
+                            Text(purchases.priceText ?? "$3.99").foregroundStyle(.secondary)
+                        }
+                    }
+                    .accessibilityIdentifier("UnlockSoakPro")
+                    Button(String(localized: "Restore Purchases")) {
+                        Task { await purchases.restore() }
+                    }
+                }
+            } header: {
+                SectionHeaderLabel(String(localized: "Soak Pro"))
+            } footer: {
+                if !purchases.isPro {
+                    Text(entitlement.trial.isActive
+                         ? String(localized: "Your free trial is active. Unlock Soak Pro any time — one-time purchase, no subscription.")
+                         : String(localized: "One-time purchase. No subscription, no ads."))
+                }
+            }
+
             Section {
                 Picker("Units", selection: $config.useMetric) {
                     Text("Metric").tag(true)
@@ -84,6 +120,7 @@ struct SettingsView: View {
         .contentMargins(.top, 0, for: .scrollContent)
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.large)
+        .sheet(isPresented: $showPaywall) { PaywallSheet() }
     }
 
     private func syncVolumeText() {
@@ -113,6 +150,11 @@ private struct LinkRow: View {
 }
 
 #Preview {
-    NavigationStack { SettingsView() }
+    let purchases = PurchaseStore()
+    let trial = TrialState()
+    return NavigationStack { SettingsView() }
         .environmentObject(HotTubConfig())
+        .environmentObject(purchases)
+        .environmentObject(trial)
+        .environmentObject(Entitlement(purchases: purchases, trial: trial))
 }
