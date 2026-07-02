@@ -178,3 +178,7 @@ this backlog's v1.1 Scope-out (line ~32); the name lock is intentionally being r
 
 (Empty — no features explicitly rejected yet. Items land here with a "why not" when decisions get made.)
 - [next version] "Rate Soak" App Store review link added to Settings/About (2026-06-17) — ships with next submission.
+
+## Ratings — value-moment ReviewGate (Handoff F, 2026-07-02)
+
+- Audit verdict **WEAK** — current prompt is the launch-count `.reviewPrompter()` (fires on 4th cold launch, not a value moment). Upgrade to the canonical value-moment `ReviewGate` (`../../patterns/ReviewPrompter.swift`, see `../../RATINGS_AUDIT_2026-07-02.md`) at next binary. No separate build now.
