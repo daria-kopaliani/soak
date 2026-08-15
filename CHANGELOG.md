@@ -2,6 +2,9 @@
 
 Daria's internal version log — **not for App Store users**. One entry per submitted version. Brief, non-technical, but not marketing-filtered: can mention bug fixes, internal milestones, or anything worth remembering about a version. Distinct from `listings/en-whats-new.txt` (the curated user-facing subset). Engineering shorthand belongs in [`BACKLOG.md`](BACKLOG.md) Shipped table.
 
+## v1.4 — submitted 2026-08-15
+Metadata release: the App Store listing is now also in Spanish (Mexico) — es-MX name, subtitle, keywords, and description, indexed on the US storefront alongside English. No app changes.
+
 ## v1.2 — 2026-06-05
 
 Localized to 5 languages (DE/ES/FR/IT/JA). New soak1 icon. Locale-aware decimal formatting fix + IT title polish to avoid keyword collision.
