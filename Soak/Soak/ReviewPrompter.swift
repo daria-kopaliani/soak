@@ -6,7 +6,7 @@ import SwiftUI
 // to the root view in <App>App.swift.
 //
 // Asks for an App Store rating only after the user has genuinely engaged:
-//   • at least `launchThreshold` DISTINCT cold launches — returning from the
+//   • at least `launchThreshold` DISTINCT cold launches (3 since 2026-08-18 — the portfolio had 8 written reviews across 59 apps at 4) — returning from the
 //     app switcher, Control Center, or a StoreKit sheet does NOT count, so the
 //     prompt can never appear on first launch or during onboarding, AND
 //   • at least `minDaysSinceFirstLaunch` days since the very first launch,
@@ -26,8 +26,8 @@ struct ReviewPrompterModifier: ViewModifier {
     // matter how many times the app is foregrounded within that process.
     @State private var countedThisLaunch = false
 
-    private static let launchThreshold = 4
-    private static let minDaysSinceFirstLaunch = 2.0
+    private static let launchThreshold = 3
+    private static let minDaysSinceFirstLaunch = 1.0
 
     func body(content: Content) -> some View {
         content.onChange(of: scenePhase) { _, phase in
